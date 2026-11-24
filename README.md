@@ -82,9 +82,10 @@ restriction on rank or on the size of the diagonal entries.
 - Independent re-checking of the compiled proof: `leanchecker` replays every project module, and `nanoda`
   accepts a `lean4export` dump of `mainTheorem` with its 60,929 dependencies, permitting only those three
   axioms.
-- `lake comparator --paranoid` (challenge `Comparator/Challenge.lean` against solution
-  `Comparator/Solution.lean`, configuration `comparator.json`) had not finished at the time of this commit;
-  its result will be recorded here.
+- `lake comparator --paranoid` accepts the solution (`Comparator/Solution.lean` against the challenge
+  `Comparator/Challenge.lean`, configuration `comparator.json`): same statement, no axiom outside the three
+  above, and the proof is accepted by every checker bundled with Lean: the default kernel, the paranoid
+  kernel, `lean4lean`, `nanoda`, `con-leche` and `con-ron`.
 - `Exploration/` holds the formalized results from the routes above that the final proof does not use
   (the cases $n\le 3$, the constant-diagonal theorem, and the reductions for the geometric-mean kernel,
   whose final hypothesis is unproved). `MatrixIneq/` does not import it.
@@ -94,4 +95,4 @@ Toolchain: Lean `v4.36.0`, Mathlib `v4.36.0`. To reproduce, run `lake exe cache 
 
 ## Credits
 
-This proof is done by Claude Fable 5.2 high with around 130usd API cost (stat from claude code).
+This proof is mainly done by Claude Fable 5.2 high with around 130usd API cost (stat from claude code).
