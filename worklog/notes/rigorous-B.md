@@ -52,11 +52,11 @@ $\sum_{j\ge m}(j+1-m)e_j=c_m$（有限和、相消），常數項是 $\tfrac12\s
 - $\tau_m=\bigl[\tfrac12(\zeta_m(p)+\zeta_m(q))-\zeta_m(\alpha)\bigr]+\dfrac{(\zeta_m(p)-\zeta_m(q))^2}{2\bigl(\sqrt{1-\zeta_m(p)}+\sqrt{1-\zeta_m(q)}\bigr)^2}$，
   因為 $1-\tfrac{a+b}2-\sqrt{(1-a)(1-b)}=\tfrac12(\sqrt{1-a}-\sqrt{1-b})^2$。
 - $\zeta_m$ 以乘積 $m\,e^{mx}A_m(x)$ 計算，$a_m$ 以 $\rho_nS_m$ 計算，
-  $\rho_n(w)=\Bigl(\dfrac{\operatorname{shc}(w/2)}{n\operatorname{shc}(nw/2)}\Bigr)^2$，$\operatorname{shc}(y)=\sinh y/y$（在 $w=0$ 正則）。
+  $\rho_n(w)=\Bigl(\dfrac{\mathrm{shc}\,(w/2)}{n\mathrm{shc}\,(nw/2)}\Bigr)^2$，$\mathrm{shc}\,(y)=\sinh y/y$（在 $w=0$ 正則）。
 
 ## 3. 一變數的嚴格計算
 
-**(a) $\operatorname{shc}$ 的 Taylor 係數。** $|y|\le\tfrac12$ 時用 $\sum_{k<40}y^{2k}/(2k+1)!$。尾項 $T(y)=\sum_{k\ge40}y^{2k}/(2k+1)!$ 在 $|y_0|\le\tfrac12$ 處的第 $i$ 個 Taylor 係數
+**(a) $\mathrm{shc}\,$ 的 Taylor 係數。** $|y|\le\tfrac12$ 時用 $\sum_{k<40}y^{2k}/(2k+1)!$。尾項 $T(y)=\sum_{k\ge40}y^{2k}/(2k+1)!$ 在 $|y_0|\le\tfrac12$ 處的第 $i$ 個 Taylor 係數
 $\le\sum_{k\ge40}\binom{2k}{i}2^{-(2k-i)}/(2k+1)!\le\sum_{k\ge40}\frac{(2k)^i}{i!}\frac{2^{i-2k}}{(2k+1)!}$；$k=40$、$i\le16$ 時首項 $<1.2\times10^{-123}$，相鄰項之比 $<\tfrac12$，
 所以 $<10^{-100}$。程式對每個係數加半徑 $10^{-100}$，並斷言階數 $\le16$。$|y|\ge0.1$ 時直接用 $\sinh y/y$。
 

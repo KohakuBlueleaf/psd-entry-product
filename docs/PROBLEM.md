@@ -60,7 +60,7 @@ The post does not say which classical result is being generalized.
 The post gives these without proofs or references, and they have not been re-proved here.
 
 1. **Real case.** The inequality holds when $A$ is real (real symmetric positive semidefinite).
-2. **Rank-one case.** The inequality holds when $\operatorname{rank} A = 1$, i.e. $a_{ij} = x_i \overline{x_j}$
+2. **Rank-one case.** The inequality holds when $\mathrm{rank}\, A = 1$, i.e. $a_{ij} = x_i \overline{x_j}$
    for some $x \in \mathbb{C}^n$.
 3. **Small order.** The inequality holds for all $n \le 15$.
 4. **Difficulty.** Many attempts with AI tools, hours long, have failed.

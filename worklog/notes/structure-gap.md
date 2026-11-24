@@ -7,7 +7,7 @@
 - `structure Certificate (n)`：次數 `D`、係數函數 `c m s`，以及三個性質
   - `nonneg`：$c_m(s)\ge0$（$m\ge1$）；
   - `total`：$(n-1)c_0(s)-\sum_{m\ge1}c_m(s)\ge-\log F_n(s)$；
-  - `circle`：單位圓周上 $|1-\sqrt{st}\,z|\le\exp\bigl(-[\tfrac12(c_0(s)+c_0(t))+\sum_m\sqrt{c_m(s)c_m(t)}\operatorname{Re}z^m]\bigr)$。
+  - `circle`：單位圓周上 $|1-\sqrt{st}\,z|\le\exp\bigl(-[\tfrac12(c_0(s)+c_0(t))+\sum_m\sqrt{c_m(s)c_m(t)}\mathrm{Re}\,z^m]\bigr)$。
 - `disc_of_circle`：用最大模原理把圓周上的不等式推到閉圓盤。
 - `reducedAt_of_certificate : Certificate n → ReducedAt n`。
 - `mainTheorem_of_certificates : (∀ n, Certificate n) → Statement.MainTheorem`。
@@ -23,7 +23,7 @@
 | 用到的正性 | $A\succeq0$ | $A\succeq0$ | $A^{\circ m}\succeq0$，$m\le n-2$（Schur） |
 | 證書的形狀 | 切線 | 切線 | 過多個節點的 Hermite 內插 |
 | 係數函數 | $\dfrac{s}{(1+s)^2}$ | $\dfrac{s}{1+s+s^2}$ | 含 $\log$（超越函數） |
-| 圓周推到圓盤 | 平凡（只含 $\operatorname{Re}z$） | 平凡 | 需要最大模原理 |
+| 圓周推到圓盤 | 平凡（只含 $\mathrm{Re}\,z$） | 平凡 | 需要最大模原理 |
 | 能否去掉對數 | 能 | 能（AM–GM） | 不能 |
 | 雙參數不等式 | 多項式恆等式 | 多項式恆等式 | 超越函數的不等式 |
 
@@ -40,7 +40,7 @@
 所以**最低次數恰為 $n-2$**。這是差距的根源，可以分成三層：
 
 1. **幾何層：距離類的個數。** $n\le3$ 時正 $n$ 邊形上任兩個不同頂點的內積只有一個值，證書只需在一個點與位勢相切。
-   位勢對 $x=\operatorname{Re}z$ 是凸函數，切線自動在下方，Cohn–Kumar 的內容退化成「凸函數在切線上方」。
+   位勢對 $x=\mathrm{Re}\,z$ 是凸函數，切線自動在下方，Cohn–Kumar 的內容退化成「凸函數在切線上方」。
    $n\ge4$ 有至少兩個距離類，證書必須同時在多個點相切，次數至少 $n-2$。
 2. **代數層：超越性。** 單一節點的切線係數是位勢的導數，為 $s$ 的有理函數。
    兩個以上節點的 Hermite 內插含位勢在不同節點的值之差，即 $\log\frac{1+s^2-2sx_k}{1+s^2-2sx_l}$。

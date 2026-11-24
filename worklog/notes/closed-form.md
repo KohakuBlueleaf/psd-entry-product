@@ -18,7 +18,7 @@ $$c_0(e^{-p})=\Gamma_0(p)=\int_p^\infty\frac{k_0(w)-1}{2}\,dw,\qquad\frac{k_0-1}
 （$m=n-1$ 時公式給出 0，與次數 $\le n-2$ 一致。）
 
 檢驗：$n=3$：$k_1=\dfrac{2\sinh w}{(1+2\cosh w)^2}$，$\Gamma_1(p)=\dfrac1{1+2\cosh p}=\dfrac s{1+s+s^2}$。
-$n=4$：$\Gamma_1=\tfrac12\operatorname{sech}p$，$\Gamma_2=\tfrac14(y-\log(1+y))$，$y=\operatorname{sech}p$。均與先前的顯式結果一致。
+$n=4$：$\Gamma_1=\tfrac12\mathrm{sech}\,p$，$\Gamma_2=\tfrac14(y-\log(1+y))$，$y=\mathrm{sech}\,p$。均與先前的顯式結果一致。
 
 ## 這帶來什麼
 

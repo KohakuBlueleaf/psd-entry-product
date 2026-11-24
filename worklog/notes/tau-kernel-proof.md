@@ -31,7 +31,7 @@ $$\int_\alpha^q\Bigl[\tfrac12(k_0(2w-q)-1)+\sum_mk_m(2w-q)e^{-m(q-w)}\cos m\thet
 ## 主定理
 
 $a_{ij}=\sqrt{d_id_j}\,c_{ij}$，$d_i=e^{-p_i}$。(c) 由調和函數的最小值原理推到 $|c|\le1$。於是
-$$\sum_{i\ne j}-\log|1-a_{ij}|\ \ge\ (n-1)\sum_i\Gamma_0(p_i)+\sum_m\Bigl[\sum_{i,j}K_m(p_i,p_j)\operatorname{Re}c_{ij}^m-\sum_i\Gamma_m(p_i)\Bigr]
+$$\sum_{i\ne j}-\log|1-a_{ij}|\ \ge\ (n-1)\sum_i\Gamma_0(p_i)+\sum_m\Bigl[\sum_{i,j}K_m(p_i,p_j)\mathrm{Re}\,c_{ij}^m-\sum_i\Gamma_m(p_i)\Bigr]
 \ \ge\ \sum_i\Bigl[(n-1)\Gamma_0(p_i)-\sum_m\Gamma_m(p_i)\Bigr]=-\sum_i\log F_n(d_i),$$
 第二個不等號用 (b) 與 Schur 乘積定理（$[K_m(p_i,p_j)]\circ C^{\circ m}\succeq0$），最後是總和恆等式（Lean `total_Gam`）。
 

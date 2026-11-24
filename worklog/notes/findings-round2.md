@@ -47,6 +47,6 @@ $$\mathbb E_e\Bigl[\sum_{m\ge1}\frac{N_m}{m}\Bigl(|p_m(x)|^2-n\,[n\mid m]\sum_i|
    這是棋盤估計（反射正性）的形狀；$n\ge3$ 時扭轉後的核不是正定的，尚未找到可用的反射。
 3. **完全正映射形式。** $\prod_{i,j}(1-a_{ij})=\det(\mathrm{id}-S_A)$，$S_A:X\mapsto A\circ X$ 為 Schur 乘子；
    右邊 $\prod_i(1-d_i^n)=\det(\mathrm{id}-(X\mapsto DXP))$，$P$ 為循環置換。
-4. **整體能量最小化形式。** 對 $g(z)=\sum\gamma_m\operatorname{Re}z^m$（$\gamma_m\ge0$），固定對角線時
+4. **整體能量最小化形式。** 對 $g(z)=\sum\gamma_m\mathrm{Re}\,z^m$（$\gamma_m\ge0$），固定對角線時
    $\sum_{i\ne j}g(a_{ij})=\sum_m\gamma_m s_m(A)-\text{常數}$，即最小化加權的張量冪和範數 $\|\sum_iv_i^{\otimes m}\|^2$。
    對單一 $m$，秩一最優（三角不等式）。

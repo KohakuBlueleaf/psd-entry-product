@@ -23,8 +23,8 @@
 
 | 定理 | 在這裡的角色 | 狀態 |
 | --- | --- | --- |
-| Schur 乘積定理 | 逐元冪次 $A^{\circ m}\succeq0$，所以 $\sum_{i,j}\varphi_i\varphi_j\operatorname{Re}c_{ij}^m\ge0$ | Mathlib |
-| 最大模原理 | 圓周上的 $|1-\tau z|\le e^{-\operatorname{Re}P(z)}$ 推到閉圓盤 | Mathlib |
+| Schur 乘積定理 | 逐元冪次 $A^{\circ m}\succeq0$，所以 $\sum_{i,j}\varphi_i\varphi_j\mathrm{Re}\,c_{ij}^m\ge0$ | Mathlib |
+| 最大模原理 | 圓周上的 $|1-\tau z|\le e^{-\mathrm{Re}\,P(z)}$ 推到閉圓盤 | Mathlib |
 | Oppenheim 不等式 | 秩一情形（備用路線） | [Lean] |
 | Hermite 內插誤差公式（差商） | $g_s-h_s=\mathrm{Fej}_n\cdot$（差商），差商為正 | [文字] |
 | Fejér 核非負、Poisson 核非負 | 誤差公式右邊每個因子非負 | 初等 |
@@ -195,7 +195,7 @@ $$\Omega_\alpha(\theta_k)=\underbrace{\tfrac12\,\frac{1-\cosh\alpha\cos\theta_k}
 
 ### 4.3g 正多邊形處的二階變分：結果 [文字，小計算核對]
 
-**恆等式（對任何構形都精確成立）。** 令 $\mathcal E=\sum_{i\ne j}-\log|1-a_{ij}|$，$\varphi(p)=-\log F_n(e^{-p})$，$S_m=\sum_{i,j}\psi_m(p_i)\psi_m(p_j)\operatorname{Re}c_{ij}^m\ge0$。則
+**恆等式（對任何構形都精確成立）。** 令 $\mathcal E=\sum_{i\ne j}-\log|1-a_{ij}|$，$\varphi(p)=-\log F_n(e^{-p})$，$S_m=\sum_{i,j}\psi_m(p_i)\psi_m(p_j)\mathrm{Re}\,c_{ij}^m\ge0$。則
 $$\mathcal E-\sum_i\varphi(p_i)=\sum_{i\ne j}L(\theta_{ij};p_i,p_j)+\sum_{m=1}^{n-2}S_m .$$
 這就是證書論證本身；它說明定理的餘量恰好是「成對缺口」加「Schur 餘量」。
 
@@ -299,7 +299,7 @@ $h^{\rm AM}=h_\alpha$ 是「算術平均核」（係數 $\Gamma_m(\frac{p+q}2)$�
 | 算術平均核 | $E_\alpha\ge0$（已證，`star_diag`） | **(AMpos)（未證）**：核 $\Gamma_m(\frac{p+q}2)$ 不是半正定的 |
 
 $W\ge0$ 同時推出兩個未證的格子（$g_\alpha\ge h^{\rm AM}\ge h^{\rm GM}$）。主定理只需要其中任何一個；(AMpos) 是最弱的充分條件，但它是 $n$ 點的敘述：
-$$\sum_{i,j}\Bigl[\Gamma_0(\alpha_{ij})-\tfrac12\Gamma_0(p_i)-\tfrac12\Gamma_0(p_j)\Bigr]+\sum_{m=1}^{n-2}\sum_{i,j}\Gamma_m(\alpha_{ij})\operatorname{Re}c_{ij}^m\ \ge0 .$$
+$$\sum_{i,j}\Bigl[\Gamma_0(\alpha_{ij})-\tfrac12\Gamma_0(p_i)-\tfrac12\Gamma_0(p_j)\Bigr]+\sum_{m=1}^{n-2}\sum_{i,j}\Gamma_m(\alpha_{ij})\mathrm{Re}\,c_{ij}^m\ \ge0 .$$
 第一個和由 $\Gamma_0$ 的凹性非負（$\Gamma_0''=-\tfrac12k_0'\le0$）。
 
 **(H★)（小計算，E41）。** 比 (H_in) 強的敘述 $H_{\rm in}\ge\tfrac12\mathcal A_\alpha$ 數值上成立，比值在 $q\to p$ 時趨於 1。它等價於

@@ -41,7 +41,7 @@ $$a_0=2(\sinh\alpha-u_0\cosh\alpha+u_1),\qquad a_m=u_{m-1}+u_{m+1}-2\cosh\alpha\
 1. **約化形式**（`Reduced.lean`）。$|1-t^n|=|1-t|(1+t+\dots+t^{n-1})$，所以只需證
    $\prod_{i\ne j}|1-a_{ij}|\le\prod_iF_n(a_{ii})$，$F_n(t)=\sum_{k<n}t^k$。
 2. **證書 ⟹ 約化形式**（`Certificate.lean`）。寫 $a_{ij}=\sqrt{d_id_j}\,c_{ij}$。若對每一對有
-   $-\log|1-\sqrt{st}\,z|\ge\tfrac12(c_0(s)+c_0(t))+\sum_m\sqrt{c_m(s)c_m(t)}\operatorname{Re}z^m$ 於 $|z|=1$，
+   $-\log|1-\sqrt{st}\,z|\ge\tfrac12(c_0(s)+c_0(t))+\sum_m\sqrt{c_m(s)c_m(t)}\mathrm{Re}\,z^m$ 於 $|z|=1$，
    則由最大模原理推到閉圓盤，由 Schur 乘積定理處理交叉項（係數矩陣 $[\sqrt{c_m(d_i)c_m(d_j)}]$ 為秩一半正定），
    再用恆等式 $(n-1)c_0-\sum_mc_m=-\log F_n$ 得結論。
 3. **Fejér 證書**（`Kernel.lean`、`Fejer.lean`）。取 $c_m(e^{-p})=\Gamma_m(p)$。這是 $-\log|1-se^{i\theta}|$

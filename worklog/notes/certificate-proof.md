@@ -24,11 +24,11 @@ $s=t$ 時就是 (CK) 第 1 條。
 設 $A\succeq0$，$d_i=a_{ii}>0$，$a_{ij}=\sqrt{d_id_j}\,c_{ij}$，$|c_{ij}|\le1$，$C=(c_{ij})$ 為相關矩陣。
 
 1. 對 $i\ne j$，$z\mapsto-\log|1-\sqrt{d_id_j}\,z|$ 在單位圓盤上是上調和函數；
-   $H_{ij}(z)=\tfrac12(c_0(d_i)+c_0(d_j))+\sum_m\sqrt{c_m(d_i)c_m(d_j)}\operatorname{Re}z^m$ 是調和函數。
+   $H_{ij}(z)=\tfrac12(c_0(d_i)+c_0(d_j))+\sum_m\sqrt{c_m(d_i)c_m(d_j)}\mathrm{Re}\,z^m$ 是調和函數。
    (★★) 給出圓周上 $H_{ij}\le g$，由最小值原理在整個閉圓盤成立。所以
    $-\log|1-a_{ij}|\ge H_{ij}(c_{ij})$。
 2. 令 $\varphi_m(i)=\sqrt{c_m(d_i)}$。Schur 乘積定理：$\sum_{i,j}\varphi_m(i)\varphi_m(j)\,c_{ij}^m\ge0$，所以
-   $\sum_{i\ne j}\varphi_m(i)\varphi_m(j)\operatorname{Re}c_{ij}^m\ge-\sum_ic_m(d_i)$。
+   $\sum_{i\ne j}\varphi_m(i)\varphi_m(j)\mathrm{Re}\,c_{ij}^m\ge-\sum_ic_m(d_i)$。
 3. 相加：
    $$\sum_{i\ne j}-\log|1-a_{ij}|\;\ge\;\sum_i\Bigl[(n-1)c_0(d_i)-\sum_{m\ge1}c_m(d_i)\Bigr]=-\sum_i\log F_n(d_i).$$
 
@@ -58,7 +58,7 @@ $\kappa$ 由次數條件決定（$n$ 奇：$c_{n-1}=0$）。$s>1$ 時用 $c_m(s)
 ## $n=3$：已完成並形式化
 
 `MatrixIneq/Three.lean`，定理 `mainTheorem_le_three`（無 `sorry`，只依賴標準公理）。證明完全初等，不用對數：
-$|1-a_{ij}|^2\le1+d_id_j-2\operatorname{Re}a_{ij}$；純量不等式
+$|1-a_{ij}|^2\le1+d_id_j-2\mathrm{Re}\,a_{ij}$；純量不等式
 $(1+st)\sqrt{F(s)F(t)}\le F(s)F(t)-\tfrac12(sF(t)+tF(s))$，其平方差等於
 $\tfrac14(s-t)^2(5s^2t^2+4s^2t+4s^2+4st^2+2st+4s+4t^2+4t+5)$；
 對權重 $1/\sqrt{F(d_i)}$ 用 PSD；最後三個因子用 AM–GM。

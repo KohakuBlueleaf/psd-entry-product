@@ -31,7 +31,7 @@ $$\sum_{k\ge1}\frac{s_k}{k}\;\ge\;\sum_{m\ge1}\frac{t_{nm}}{m}.$$
 注意逐項比較行不通：對 PSD 矩陣恆有 $s_k\le n\,t_k$，方向相反。不等式本質上是跨次數的。
 最低階的資訊：若 $s_1=\dots=s_{n-1}=0$，則所有 $v_i$ 落在同一條複直線上且是同一向量乘上 $n$ 次單位根，此時 $s_n=n\,t_n$ 取等。
 
-**(E) 能量形式。** $-\log|1-\langle z,w\rangle|=\operatorname{Re}\sum_k \langle z,w\rangle^k/k$ 是一個正定核。
+**(E) 能量形式。** $-\log|1-\langle z,w\rangle|=\mathrm{Re}\,\sum_k \langle z,w\rangle^k/k$ 是一個正定核。
 (R) 是說：$n$ 個點的對數能量 $\sum_{i\ne j}-\log|1-\langle v_i,v_j\rangle|$ 有下界 $-\sum_i\log F_n(\|v_i\|^2)$。
 單位向量時 $|1-\langle z,w\rangle|^{1/2}$ 是複球面上的 Korányi 距離，問題變成 Fekete 點問題。
 
@@ -45,14 +45,14 @@ $$\sum_{k\ge1}\frac{s_k}{k}\;\ge\;\sum_{m\ge1}\frac{t_{nm}}{m}.$$
    又 $\tfrac1{1-z}=F_n(z)\cdot\tfrac1{1-z^n}$，所以這個矩陣是 $G\circ K$，其中 $G=[F_n(x_i\bar x_j)]=VV^*$（$V$ 為 Vandermonde，
    $\det G=|\Delta|^2$），$K=[\tfrac1{1-x_i^n\bar x_j^n}]\succeq0$。Oppenheim 不等式 $\det(G\circ K)\ge\det G\cdot\prod_iK_{ii}$ 即得結論。
 3. **[已證] 秩一且所有 $|x_i|>1$。** 代換 $y_i=1/\bar x_i$ 化為上一條。
-4. **[已證] 對角線單調性。** 若 $d\le d'$（逐項），則 $A+\operatorname{diag}(d'-d)$ 仍為 PSD 且非對角元不變。
-   所以 $M(d):=\sup\{\prod_{i\ne j}|1-a_{ij}|:\operatorname{diag}A=d\}$ 對每個 $d_i$ 單調不減。
+4. **[已證] 對角線單調性。** 若 $d\le d'$（逐項），則 $A+\mathrm{diag}\,(d'-d)$ 仍為 PSD 且非對角元不變。
+   所以 $M(d):=\sup\{\prod_{i\ne j}|1-a_{ij}|:\mathrm{diag}\,A=d\}$ 對每個 $d_i$ 單調不減。
 5. **[依賴文獻] 等對角 $a_{ii}=\rho$（任意 $\rho>0$，任意秩）。** 寫 $a_{ij}=\rho c_{ij}$，$|c_{ij}|\le1$。
    - $g_\rho(z)=-\log|1-\rho z|$ 在單位圓盤上是上調和函數，在圓周上是 $t=\cos\theta$ 的絕對單調函數。
    - Cohn–Kumar (2007) 對圓周上正 $n$ 邊形給出 Hermite 內插多項式 $h(\theta)=\sum_{m=0}^{n-1}c_m\cos m\theta$，
      滿足 $h\le g_\rho$、在 $\theta=2\pi k/n$（$k\ne0$）相切、且 $c_m\ge0$（$m\ge1$）。
-   - 調和延拓 $h(z)=\sum c_m\operatorname{Re}z^m$；由最小值原理 $h\le g_\rho$ 在整個閉圓盤成立。
-   - Schur 乘積定理給 $\sum_{i,j}\operatorname{Re}c_{ij}^m\ge0$，所以
+   - 調和延拓 $h(z)=\sum c_m\mathrm{Re}\,z^m$；由最小值原理 $h\le g_\rho$ 在整個閉圓盤成立。
+   - Schur 乘積定理給 $\sum_{i,j}\mathrm{Re}\,c_{ij}^m\ge0$，所以
      $\sum_{i\ne j}g_\rho(c_{ij})\ge n(n-1)c_0-n\sum_{m\ge1}c_m=-n\log F_n(\rho)$。
    - 數值上（E2）對 $n\in\{2,\dots,6,8,12\}$、$\rho\in\{0.3,0.9,1,1.7\}$，LP 最優值與目標一致。
    - 待辦：核對 Cohn–Kumar 原文中係數非負的敘述確實涵蓋這裡用到的形式。
@@ -88,7 +88,7 @@ $$\sum_{k\ge1}\frac{s_k}{k}\;\ge\;\sum_{m\ge1}\frac{t_{nm}}{m}.$$
 | E7 | `e7_reduction_to_equal.py` | 每對用 $\tau_{ij}=\sqrt{d_id_j}$ 的等對角證書 | $n=3$ 可行；$n\ge4$ 餘量為負，照原樣不可用。$c_0(e^u)$ 為凹 |
 
 **猜想 R1 [猜想·數值支持]（秩一化約）。** 對任意固定的對角線 $d$，$\prod_{i\ne j}|1-a_{ij}|$ 在
-$\{A\succeq0,\ \operatorname{diag}A=d\}$ 上的最大值在秩一矩陣取到。
+$\{A\succeq0,\ \mathrm{diag}\,A=d\}$ 上的最大值在秩一矩陣取到。
 E3 對 $n=3,\dots,7$、對角線全小於 1、全等於 1、跨越 1 的 16 組資料都是如此。
 若成立，主定理化為秩一情形。
 
@@ -146,7 +146,7 @@ $Z=N-\Lambda\succeq0$、$Z\bar A=0$，其中 $N_{ij}=1/(1-a_{ij})$（$i\ne j$）
 ### 路線 B：行列式鏈（CD＋Oppenheim）
 
 - **B1 證明 CD。** 想法：
-  - 加一個點的 Schur 補歸納：$\det C_n=\det C_{n-1}\cdot\operatorname{dist}^2(k_{v_n},\operatorname{span}\{k_{v_i}\}_{i<n})$，但 $F_n$ 依賴 $n$，歸納假設要推廣成帶參數 $N\ge n$ 的版本。
+  - 加一個點的 Schur 補歸納：$\det C_n=\det C_{n-1}\cdot\mathrm{dist}\,^2(k_{v_n},\mathrm{span}\,\{k_{v_i}\}_{i<n})$，但 $F_n$ 依賴 $n$，歸納假設要推廣成帶參數 $N\ge n$ 的版本。
     已知 $\det[F_N(a_{ij})]$ 對 $N$ 單調不減，所以 $N=n$ 是最強的情形。
   - 對稱函數：秩一時兩邊是 $|\Delta|^2\sum_\lambda|s_\lambda(x)|^2$ 與 $|\Delta|^2$。尋找高秩時的 Cauchy–Binet 展開，把差寫成非負項之和。
   - 在秩一處的二階展開：先證 CD 在秩一附近成立，並看 Hessian 的結構。
@@ -159,7 +159,7 @@ $Z=N-\Lambda\succeq0$、$Z\bar A=0$，其中 $N_{ij}=1/(1-a_{ij})$（$i\ne j$）
 
 - **C1 等對角。** 見第 2 節第 5 條。任務：核對文獻，或直接給出 $h$ 的顯式係數並證明非負。
 - **C2 不等對角（多物種能量）。** 位勢 $g_{ij}(z)=-\log|1-\rho_i\rho_jz|$ 依賴點對。證書形如
-  $h_{ij}(z)=\sum_m C_m[i,j]\operatorname{Re}z^m$，要求每個 $m\ge1$ 的係數矩陣 $C_m\succeq0$、圓周上 $h_{ij}\le g_{ij}$。
+  $h_{ij}(z)=\sum_m C_m[i,j]\mathrm{Re}\,z^m$，要求每個 $m\ge1$ 的係數矩陣 $C_m\succeq0$、圓周上 $h_{ij}\le g_{ij}$。
   對應的原問題鬆弛：一族圓周上的機率測度 $\mu_{ij}$，要求每個 $m\ge1$ 的 Fourier 係數矩陣 $[\hat\mu_{ij}(m)]\succeq0$。
 - **第一步實驗。** E6：對 $n=3,4$ 的幾組不等對角，數值求解這個 SDP（需要安裝 SDP 求解器），看鬆弛值是否等於秩一最大值。
   若相等，這條路線同時證明 R1；若不等，C2 放棄，並且說明調和證書不夠。
@@ -169,7 +169,7 @@ $Z=N-\Lambda\succeq0$、$Z\bar A=0$，其中 $N_{ij}=1/(1-a_{ij})$（$i\ne j$）
 ### 路線 D：冪級數、Fock 空間與對稱函數
 
 - 直接攻 (S)。把 $\prod_{i,j}(1-a_{ij})^{-1}=\exp\sum_k s_k/k$ 展開成對非負整數矩陣 $M$ 的求和 $\sum_M\prod a_{ij}^{m_{ij}}$，
-  右邊對應 $M=n\cdot\operatorname{diag}$ 的項。秩一時這是 RSK／Cauchy 恆等式。
+  右邊對應 $M=n\cdot\mathrm{diag}\,$ 的項。秩一時這是 RSK／Cauchy 恆等式。
 - 核的比較：$\mathcal K(V,W)=\prod_{i,j}(1-\langle v_i,w_j\rangle)^{-1}$ 是構形空間上的正定核。尋找它的正交分解，使對角線上的值明顯大於目標。
 - 表示論：$(\mathrm{GL}_n,\mathrm{GL}_d)$ Howe 對偶、$\mathbb Z/n$ 的同型分解（單位根結構）。
 - 風險：容易停在形式改寫。適合當作路線 B 的工具庫。

@@ -19,7 +19,7 @@ $|c_{ij}|\le1$. Equality holds in (R) when all $d_i$ are equal and the $c_{ij}$ 
 root of unity, which is the configuration of a regular $n$-gon. This is the situation of
 linear-programming bounds for point configurations (Delsarte, Yudin, Cohn–Kumar), with one difference:
 the points lie on circles of different radii. So we look for a pair inequality
-$$-\log\bigl|1-\sqrt{st}\,c\bigr|\ \ge\ \tfrac12\bigl(\gamma_0(s)+\gamma_0(t)\bigr)+\sum_{m=1}^{n-2}\kappa_m(s,t)\,\operatorname{Re}c^m\qquad(|c|\le1)\tag{P}$$
+$$-\log\bigl|1-\sqrt{st}\,c\bigr|\ \ge\ \tfrac12\bigl(\gamma_0(s)+\gamma_0(t)\bigr)+\sum_{m=1}^{n-2}\kappa_m(s,t)\,\mathrm{Re}\,c^m\qquad(|c|\le1)\tag{P}$$
 in which every $\kappa_m$ is a positive semidefinite kernel in the two radii. Summing (P) over $i\ne j$,
 the matrices $[\kappa_m(d_i,d_j)]$ and $C^{\circ m}$ are both positive semidefinite, so by the Schur
 product theorem the cross terms can be dropped, leaving only the diagonal values $\kappa_m(s,s)$ and
@@ -123,7 +123,7 @@ By (K4), $\chi_m'\ge0$. So $K_m$ is a nonnegative mixture of the rank-one kernel
 $\phi_\tau(p)\phi_\tau(q)$, $\phi_\tau(p)=e^{-m\max(p,\tau)/2}$:
 
 **Corollary 2 (positive semidefiniteness).** For $p_1,\dots,p_r\ge0$ and any Hermitian positive
-semidefinite $M\in\mathbb C^{r\times r}$, $\ \sum_{i,j}K_m(p_i,p_j)\operatorname{Re}M_{ij}\ge0$.
+semidefinite $M\in\mathbb C^{r\times r}$, $\ \sum_{i,j}K_m(p_i,p_j)\mathrm{Re}\,M_{ij}\ge0$.
 
 (The integrand is $\chi_m'(\tau)\,\phi^{\mathsf T}M\phi\ge0$ with the real vector $\phi=(\phi_\tau(p_i))_i$.
 In Lean the integral is truncated at a finite upper limit; the remainder is a nonnegative multiple of a
@@ -166,10 +166,10 @@ $p\in[0,q]$, its $p$-derivative being minus the smoothed form of (K2), and it is
 
 First suppose $0<d_i\le1$ for all $i$ and write $d_i=e^{-p_i}$, $\alpha_{ij}=\frac{p_i+p_j}2$,
 $a_{ij}=e^{-\alpha_{ij}}c_{ij}$. For fixed $i\ne j$ the function
-$$c\ \mapsto\ -\log|1-e^{-\alpha_{ij}}c|-\tfrac12\bigl(\Gamma_0(p_i)+\Gamma_0(p_j)\bigr)-\sum_mK_m(p_i,p_j)\operatorname{Re}c^m$$
+$$c\ \mapsto\ -\log|1-e^{-\alpha_{ij}}c|-\tfrac12\bigl(\Gamma_0(p_i)+\Gamma_0(p_j)\bigr)-\sum_mK_m(p_i,p_j)\mathrm{Re}\,c^m$$
 is harmonic near the closed unit disc (if $a_{ij}=1$ there is nothing to prove) and nonnegative on the unit
 circle by Proposition 3, hence nonnegative at $c=c_{ij}$. Summing over $i\ne j$:
-$$\sum_{i\ne j}-\log|1-a_{ij}|\ \ge\ (n-1)\sum_i\Gamma_0(p_i)+\sum_{m=1}^{n-2}\Bigl[\sum_{i,j}K_m(p_i,p_j)\operatorname{Re}c_{ij}^{\,m}-\sum_i\Gamma_m(p_i)\Bigr].$$
+$$\sum_{i\ne j}-\log|1-a_{ij}|\ \ge\ (n-1)\sum_i\Gamma_0(p_i)+\sum_{m=1}^{n-2}\Bigl[\sum_{i,j}K_m(p_i,p_j)\mathrm{Re}\,c_{ij}^{\,m}-\sum_i\Gamma_m(p_i)\Bigr].$$
 The entrywise power $C^{\circ m}$ is positive semidefinite (Schur product theorem), so the double sum is
 nonnegative by Corollary 2. With (K3),
 $$\sum_{i\ne j}-\log|1-a_{ij}|\ \ge\ \sum_i\Bigl[(n-1)\Gamma_0(p_i)-\sum_m\Gamma_m(p_i)\Bigr]=-\sum_i\log F_n(d_i),$$
