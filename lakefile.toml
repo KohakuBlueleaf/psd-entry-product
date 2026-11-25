@@ -1,5 +1,5 @@
 name = "matrix"
-defaultTargets = ["Statement", "MatrixIneq", "Exploration"]
+defaultTargets = ["Statement", "MatrixIneq", "Exploration", "Short"]
 
 [leanOptions]
 autoImplicit = false
@@ -16,6 +16,10 @@ name = "Statement"
 [[lean_lib]]
 name = "MatrixIneq"
 
+# A self-contained single-file proof of the same theorem (imports only Mathlib).
+[[lean_lib]]
+name = "Short"
+
 # Intermediate directions; not used by the proof.
 [[lean_lib]]
 name = "Exploration"
@@ -23,4 +27,4 @@ name = "Exploration"
 # Inputs for the comparator tool (`Challenge` contains a `sorry` by design).
 [[lean_lib]]
 name = "Comparator"
-roots = ["Comparator.Challenge", "Comparator.Solution"]
+roots = ["Comparator.Challenge", "Comparator.Solution", "Comparator.SolutionShort"]

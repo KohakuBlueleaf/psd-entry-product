@@ -33,18 +33,21 @@ if lake build > "$OUT/build.log" 2>&1; then record "lake build" PASS "$(tail -1 
 else record "lake build" FAIL "see $OUT/build.log"; fi
 
 # 2. source scan (the Comparator challenge file contains the one intended `sorry`)
-if grep -rnE '\bsorry\b|^\s*axiom\b|native_decide|implemented_by|^\s*unsafe\b' Statement.lean MatrixIneq.lean MatrixIneq > "$OUT/scan.log"; then
+if grep -rnE '\bsorry\b|^\s*axiom\b|native_decide|implemented_by|^\s*unsafe\b' Statement.lean MatrixIneq.lean MatrixIneq Short.lean > "$OUT/scan.log"; then
   record "source scan" FAIL "forbidden token found, see $OUT/scan.log"
-else record "source scan" PASS "no sorry / axiom / native_decide in Statement.lean, MatrixIneq/"; fi
+else record "source scan" PASS "no sorry / axiom / native_decide in Statement.lean, MatrixIneq/, Short.lean"; fi
 
 # 3. statement and axioms
 cat > "$OUT/Axioms.lean" <<'LEAN'
 import MatrixIneq
+import Short
 #check (MatrixIneq.mainTheorem : Statement.MainTheorem)
+#check (Short.main : Statement.MainTheorem)
 #print axioms MatrixIneq.mainTheorem
+#print axioms Short.main
 LEAN
-if lake env lean "$OUT/Axioms.lean" > "$OUT/axioms.log" 2>&1 && grep -qF "depends on axioms: $AXIOMS_OK" "$OUT/axioms.log"; then
-  record "statement + axioms" PASS "$(grep 'depends on axioms' "$OUT/axioms.log")"
+if lake env lean "$OUT/Axioms.lean" > "$OUT/axioms.log" 2>&1 && [ "$(grep -cF "depends on axioms: $AXIOMS_OK" "$OUT/axioms.log")" -eq 2 ]; then
+  record "statement + axioms" PASS "mainTheorem and Short.main: $AXIOMS_OK"
 else record "statement + axioms" FAIL "see $OUT/axioms.log"; fi
 
 # 4. leanchecker
@@ -53,7 +56,7 @@ if [ -z "$LC" ]; then record "leanchecker" SKIP "tool not found"
 else
   ( ulimit -s unlimited 2>/dev/null
     fail=0
-    for m in Statement $(find MatrixIneq -name '*.lean' | sort | sed 's#/#.#g; s#\.lean$##'); do
+    for m in Statement Short $(find MatrixIneq -name '*.lean' | sort | sed 's#/#.#g; s#\.lean$##'); do
       if lake env "$LC" "$m" >> "$OUT/leanchecker.log" 2>&1; then echo "ok   $m"; else echo "FAIL $m"; fail=1; fi
     done > "$OUT/leanchecker.summary"; exit $fail )
   if [ $? -eq 0 ]; then record "leanchecker" PASS "$(wc -l < "$OUT/leanchecker.summary") modules replayed"
@@ -83,9 +86,11 @@ fi
 if ! lake comparator --help >/dev/null 2>&1; then record "comparator" SKIP "this Lake has no 'comparator' command"
 elif ! command -v bwrap >/dev/null 2>&1; then record "comparator" SKIP "bubblewrap (bwrap) not installed"
 else
-  if lake comparator --config comparator.json ${COMPARATOR_FLAGS---paranoid} > "$OUT/comparator.log" 2>&1; then
-    record "comparator" PASS "$(tail -1 "$OUT/comparator.log")"
-  else record "comparator" FAIL "see $OUT/comparator.log"; fi
+  for c in comparator comparator-short; do
+    if lake comparator --config "$c.json" ${COMPARATOR_FLAGS---paranoid} > "$OUT/$c.log" 2>&1; then
+      record "$c" PASS "$(tail -1 "$OUT/$c.log")"
+    else record "$c" FAIL "see $OUT/$c.log"; fi
+  done
 fi
 
 echo
