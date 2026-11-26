@@ -72,6 +72,11 @@ integration along a path, and the constant term comes out exactly right. The geo
 
 The full account is in [`docs/PROOF.md`](docs/PROOF.md).
 
+**A short proof.** After the first version, a community of readers produced a one-page sum-of-squares
+proof built on the same kernels $\chi_m$. [`Short.lean`](Short.lean) is our answer to it: a single self-contained file that
+proves the theorem by showing that one explicit function of a cap on the diagonal is nondecreasing, with
+no integrals. The mathematics is written out in [`docs/SHORT.md`](docs/SHORT.md).
+
 ## Lean proof state
 
 The theorem is proved in full generality: every $n$, every complex positive semidefinite $A$, no
@@ -86,6 +91,9 @@ restriction on rank or on the size of the diagonal entries.
   `Comparator/Challenge.lean`, configuration `comparator.json`): same statement, no axiom outside the three
   above, and the proof is accepted by every checker bundled with Lean: the default kernel, the paranoid
   kernel, `lean4lean`, `nanoda`, `con-leche` and `con-ron`.
+- `Short.lean` is checked the same way: `Short.main` has the type `Statement.MainTheorem` and the same
+  three axioms, and `lake comparator --paranoid` accepts it (`Comparator/SolutionShort.lean`,
+  configuration `comparator-short.json`).
 - `Exploration/` holds the formalized results from the routes above that the final proof does not use
   (the cases $n\le 3$, the constant-diagonal theorem, and the reductions for the geometric-mean kernel,
   whose final hypothesis is unproved). `MatrixIneq/` does not import it.
