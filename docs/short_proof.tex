@@ -1,0 +1,46 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{xeCJK}
+\setCJKmainfont{Noto Serif CJK TC}
+\usepackage[colorlinks,urlcolor=blue]{hyperref}
+\pagestyle{empty}
+\setlength{\parindent}{2em}
+\linespread{1.15}
+\newcommand{\re}{\mathrm{Re}\,}
+\begin{document}
+\begin{center}\LARGE\bfseries 半正定矩陣元素乘積不等式的單調量證明\end{center}
+\medskip
+
+\noindent\textbf{定理.}\quad 設 $A=(a_{ij})_{n\times n}$ 為複半正定矩陣，求證
+\[
+\prod_{i=1}^{n}|1-a_{ii}^{\,n}| \;\ge\; \prod_{i,j=1}^{n}|1-a_{ij}| .
+\]
+
+\noindent\textbf{證明.}\footnote{核函數與平方和證明相同（$t=e^{-x}$），這裡只用被積函數的符號，不需要積分。Lean 形式化見
+\url{https://github.com/KohakuBlueleaf/psd-entry-product/blob/main/Short.lean}。}\quad
+不妨設 $0<a_{ii}<1$（否則考慮 $TAT$，$T=\mathrm{diag}(1/\max\{1,a_{ii}\})$，並由連續性）。記 $D=\mathrm{diag}(a_{11},\dots,a_{nn})$，
+$C=D^{-1/2}AD^{-1/2}$，$S_n(z)=\sum_{j=0}^{n-1}z^j$，並對 $0<t<1$ 定義
+\[
+\chi_m(t)=\frac{1-t^{2(n-m)}-(n-m)\,t^{\,n-m-1}(1-t^2)}{(1-t^n)^2},\qquad
+g_t(a)=\frac{a}{1-a}+\frac{1+\chi_0(t)}{2}-\sum_{m=0}^{n-1}\chi_m(t)\,a^m ,
+\]
+\noindent
+以及 $a_{ij}(t)=\sqrt{\min\{a_{ii},t\}\min\{a_{jj},t\}}\;C_{ij}$，
+\[
+\Psi(t)=\sum_{i}\log\bigl(1-a_{ii}(t)^n\bigr)
+-\sum_{i,j}\Bigl[\log\bigl(1-a_{ij}(t)\bigr)+\sum_{m=1}^{n-1}\frac{\chi_m(t)}{m}\,a_{ij}(t)^m\Bigr].
+\]
+
+注意到 $\chi_m\ge0$，$\chi_m'\le0$，且對 $|z|=1$ 有
+\[
+2\,\re g_t(tz)=\frac{t^{\,n-1}(1-t^2)(1-t)^2}{(1-t^n)^2}\cdot\frac{|S_n(z)|^2}{|1-tz|^2}\;\ge\;0 ,
+\]
+故由最大模原理 $\re g_t(a)\ge0$（$|a|\le t$）。又 $|a_{ij}(t)|\le t$，由 Schur 乘積定理
+$Q_m(t)=\sum_{i,j}\re a_{ij}(t)^m\ge0$。於是由 $\Psi(0)=0$ 及
+\[
+\frac{d}{dt}\,\re\Psi(t)=\sum_{i\ne j}\frac{\mathbf 1_{\{t<a_{ii}\}}+\mathbf 1_{\{t<a_{jj}\}}}{2t}\,\re g_t\bigl(a_{ij}(t)\bigr)
+-\sum_{m=1}^{n-1}\frac{\chi_m'(t)}{m}\,Q_m(t)\;\ge\;0
+\]
+（對角項由上式取 $z=1$ 相消），在 $t=\max_i a_{ii}$ 處 $A(t)=A$，再由 $\chi_m\ge0$ 即得原不等式。\hfill$\square$
+\end{document}
